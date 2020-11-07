@@ -1,8 +1,9 @@
 h1, h3{
-    font-size: 2rem;
-    background-color: rgba(0, 0, 0, 0.24);
-    border-radius: 2%;
-    margin: 1em;
+    font-size: 3rem;
+    background-color: rgba(235, 229, 229, 0.404);
+    border-radius: 20px;
+    padding: 5px;
+    margin: .5em;
 }
 
 h3{
@@ -11,4 +12,38 @@ h3{
 
 #preview {
     margin: 5rem;
+    position:relative;
+    width: 38rem;
+    display: flex;
+    flex-direction: column;
+}
+
+#name{
+
+}
+
+#message{
+    float: right;
+    padding-top: .5rem;
+    margin: .5rem;
+    
+}
+#ad-price{
+   /* float: right; */
+   position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: 2rem;
+    background-color: rgba(235, 229, 229, 0.404);
+    align-content: flex-end;
+    border-radius: 20px;
+    padding: 5px;
+}
+
+#contact{
+    float: left;
+    margin: 0.5rem 0.5rem;
+    background-color: rgba(235, 229, 229, 0.404);
+    border-radius: 20px;
+    padding: 5px;
 }

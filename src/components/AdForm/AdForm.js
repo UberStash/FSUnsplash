@@ -55,8 +55,8 @@ function AdForm(props) {
   Test()
 
   return (
-      
-    <form>
+   <section id='form'>   
+    <form >
       
       <div>
         <label>
@@ -199,6 +199,7 @@ function AdForm(props) {
       </div>
       <Button variant="contained" color='secondary' onClick={() => props.passBack(state)}>Preview</Button>
     </form>
+    </section>
   );
 }
 
