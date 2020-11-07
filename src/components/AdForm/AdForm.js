@@ -12,7 +12,8 @@ const unsplash = new Unsplash({
   accessKey: "J7CpQbeIfmg5H_JOLBJ7EBtAv5mJqJM8b86_UqHMzos",
 });
 
-function AdForm() {
+function AdForm(props) {
+    console.log(props)
   const [state, setState] = useState({
     pictures: [],
     text: '',
@@ -158,7 +159,7 @@ function AdForm() {
           }), console.log(state.content))}/>
           </label>
       </div>
-      <Button type="submit" variant="contained" color='secondary'>Preview</Button>
+      <Button variant="contained" color='secondary' onClick={() => props.passBack(state)}>Preview</Button>
     </form>
   );
 }
