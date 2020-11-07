@@ -5,6 +5,7 @@ import TextField from '@material-ui/core/TextField'
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import Avatar from '@material-ui/core/Avatar';
+import Input from '@material-ui/core/Input';
 
 
 const toJson = require("unsplash-js").toJson;
@@ -20,8 +21,11 @@ function AdForm(props) {
     name: '',
     content: '',
     background: '',
+    contact: '',
     type: '',
-    url: ''
+    url: '',
+    price: '',
+    color: '',
   });
 
   const Test = function () {
@@ -42,7 +46,7 @@ function AdForm(props) {
 
   const pictureList = state.pictures.map((picture)=> {
         return <MenuItem value={picture.urls.full}>
-        <Avatar alt="Remy Sharp" src={picture.urls.full} />
+        <Avatar alt="Remy Sharp" src={picture.urls.small} />
         </MenuItem>
         // console.log(picture)
       })
@@ -99,11 +103,6 @@ function AdForm(props) {
           
 
           <Select
-        //   SelectProps={{
-        //     SelectDisplayProps: {
-        //         "data-testid": "id-font"
-        //     }
-        // }}
           labelId="font"
           id="font"
           value={state.text}
@@ -120,6 +119,31 @@ function AdForm(props) {
         </Select>
         </label>
       </div>
+
+      <div>
+    
+    <label>
+      Select Your Font Color:
+      <Input
+      style={{width: '4rem'}}
+      type='color'
+      labelId="color"
+      id="color"
+      value={state.color}
+      onChange={(event) => {
+        event.preventDefault()  
+        setState((prev) => ({
+          ...prev,
+        color: event.target.value,
+      }), console.log(state))}}
+    />
+      
+    </label>
+  </div>
+
+
+
+
       <div>
           <label>
               What would you like written in the Ad?
@@ -146,6 +170,20 @@ function AdForm(props) {
           }), console.log(state.contact))}/>
           </label>
       </div>
+
+      <div>
+          <label>
+              Do you want a price in the ad?
+              <br/>
+      <TextField 
+      id="price"
+      placeholder='price?' text="text" onChange={(event) => setState((prev) => ({
+              ...prev,
+            price: event.target.value,
+          }))}/>
+          </label>
+      </div>
+
       <div>
           <label>
               What URL would you like the ad to go to?
