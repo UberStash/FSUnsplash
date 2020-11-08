@@ -42,11 +42,15 @@ function App() {
 
   return (
     
-      <Grid container spacing={3}>
-        <Grid item xs={6}>
+      <Grid container
+      direction="row"
+      justify="center"
+      alignItems="center" 
+      >
+        <Grid item xs>
         <AdForm passBack={passBack}/>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs id='preview-app'>
         <AdPreview state={state}/>
         </Grid>
         </Grid>

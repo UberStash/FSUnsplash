@@ -3,5 +3,10 @@
 }
 
 #form {
-    padding-top: 60rem !important;
+    padding-top: 2rem;
+}
+
+.img {
+    max-width: 15rem;
+    border-radius: 1rem;
 }

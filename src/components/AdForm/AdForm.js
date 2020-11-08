@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Unsplash from "unsplash-js";
+import "./AdForm.css";
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField'
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
-import Avatar from '@material-ui/core/Avatar';
+import FormGroup from '@material-ui/core/FormGroup';
 import Input from '@material-ui/core/Input';
 
 
@@ -14,7 +15,7 @@ const unsplash = new Unsplash({
 });
 
 function AdForm(props) {
-    console.log(props)
+    
   const [state, setState] = useState({
     pictures: [],
     text: '',
@@ -46,7 +47,7 @@ function AdForm(props) {
 
   const pictureList = state.pictures.map((picture)=> {
         return <MenuItem value={picture.urls.full}>
-        <Avatar alt="Remy Sharp" src={picture.urls.small} />
+        <img class="img" alt="Remy Sharp" src={picture.urls.small} />
         </MenuItem>
         // console.log(picture)
       })
@@ -60,11 +61,11 @@ function AdForm(props) {
       
       <div>
         <label>
-          Type of Business:
+          Background Key Words:
           <TextField id='type' name="type" onSelect={(event) => setState((prev) => ({
               ...prev,
             type: event.target.value,
-          }), console.log(state.type))}/>
+          }))}/>
         </label>
       </div>
 
@@ -82,7 +83,7 @@ function AdForm(props) {
          Select Your Background
       <Select
       
-          labelId="background"
+          
           id="background"
           value={state.background}
           onChange={(event) => {
@@ -103,7 +104,6 @@ function AdForm(props) {
           
 
           <Select
-          labelId="font"
           id="font"
           value={state.text}
           onChange={(event) => {
@@ -127,7 +127,6 @@ function AdForm(props) {
       <Input
       style={{width: '4rem'}}
       type='color'
-      labelId="color"
       id="color"
       value={state.color}
       onChange={(event) => {
@@ -162,7 +161,7 @@ function AdForm(props) {
               Do you want contact information in the ad?
               <br/>
       <TextField 
-      id="contact"
+      id="contact-info"
       multiline
       placeholder='Contact Information?' text="text" onChange={(event) => setState((prev) => ({
               ...prev,
