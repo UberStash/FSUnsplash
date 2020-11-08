@@ -15,10 +15,10 @@ function AdPreview(props) {
     width: "40rem",
     height: "40rem",
     backgroundImage: `url(${props.state.background})`,
-    backgroundColor: props.state.background? "null" : "black",
+    backgroundColor: props.state.background? "null" : "white",
     borderRadius: "2%",
     fontFamily: props.state.text ? props.state.text : 'Bebas Neue',
-    border: '1px solid black'
+    // border: '1px solid black'
   };
 
   

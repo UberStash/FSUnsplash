@@ -3,10 +3,33 @@
 }
 
 #form {
-    padding-top: 2rem;
+    margin-top: 2rem;
+    text-align: center;
+    display: block;
+    
 }
 
 .img {
-    max-width: 15rem;
+    max-width: 10rem;
     border-radius: 1rem;
+}
+
+button {
+    width: 10rem;
+    text-align: center;
+}
+
+div::label {
+    /* color: yellow; */
+    margin-top: 1rem;
+    padding: 1rem;
+    text-align: center;
+}
+
+.input{
+    margin: 1rem;
+}
+
+:placeholder-shown{
+    text-align: center;
 }

@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Unsplash from "unsplash-js";
 import "./AdForm.css";
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField'
-import MenuItem from '@material-ui/core/MenuItem';
-import Select from '@material-ui/core/Select';
-import FormGroup from '@material-ui/core/FormGroup';
-import Input from '@material-ui/core/Input';
-
+import Button from "@material-ui/core/Button";
+import TextField from "@material-ui/core/TextField";
+import MenuItem from "@material-ui/core/MenuItem";
+import Select from "@material-ui/core/Select";
+import Form from "@material-ui/core/FormGroup";
+import Input from "@material-ui/core/Input";
 
 const toJson = require("unsplash-js").toJson;
 const unsplash = new Unsplash({
@@ -15,24 +14,26 @@ const unsplash = new Unsplash({
 });
 
 function AdForm(props) {
-    
   const [state, setState] = useState({
     pictures: [],
-    text: '',
-    name: '',
-    content: '',
-    background: '',
-    contact: '',
-    type: '',
-    url: '',
-    price: '',
-    color: '',
+    text: "",
+    name: "",
+    content: "",
+    background: "",
+    contact: "",
+    type: "",
+    url: "",
+    price: "",
+    color: "",
   });
 
   const Test = function () {
     useEffect(() => {
       unsplash.search
-        .photos(`${state.type}`, 1, 20, { orientation: "portrait", color: "green" })
+        .photos(`${state.type}`, 1, 20, {
+          orientation: "portrait",
+          color: "green",
+        })
         .then(toJson)
         .then((json) => {
           console.log(json.results);
@@ -45,159 +46,228 @@ function AdForm(props) {
     }, [state.type]);
   };
 
-  const pictureList = state.pictures.map((picture)=> {
-        return <MenuItem value={picture.urls.full}>
-        <img class="img" alt="Remy Sharp" src={picture.urls.small} />
-        </MenuItem>
-        // console.log(picture)
-      })
-  
-  
-  Test()
+  const pictureList = state.pictures.map((picture) => {
+    return (
+      <MenuItem value={picture.urls.full}>
+        <img class="img" src={picture.urls.small} />
+      </MenuItem>
+    );
+    // console.log(picture)
+  });
+
+  Test();
 
   return (
-   <section id='form'>   
-    <form >
-      
-      <div>
-        <label>
-          Background Key Words:
-          <TextField id='type' name="type" onSelect={(event) => setState((prev) => ({
-              ...prev,
-            type: event.target.value,
-          }))}/>
-        </label>
-      </div>
-
-      <div>
-        <label>
-          Name of your Business:
-          <TextField name="name" id="name" onChange={(event) => setState((prev) => ({
-              ...prev,
-            name: event.target.value,
-          }), console.log(state.name))}/>
-        </label>
-      </div>
-      <div>
-     <label>
-         Select Your Background
-      <Select
-      
-          
-          id="background"
-          value={state.background}
-          onChange={(event) => {
-            event.preventDefault()  
-            setState((prev) => ({
-              ...prev,
-            background: event.target.value,
-          }), console.log(state))}}
-        >
-          {pictureList}
-        </Select>
-        </label>
+    <section id="form">
+      <Form>
+        <div class="input">
+          <label>
+            Background Key Words:
+            <br />
+            <TextField
+              id="type"
+              name="type"
+              onSelect={(event) =>
+                setState((prev) => ({
+                  ...prev,
+                  type: event.target.value,
+                }))
+              }
+            />
+          </label>
         </div>
-        <div>
-    
-        <label>
-          Select Your Font Style:
-          
 
-          <Select
-          id="font"
-          value={state.text}
-          onChange={(event) => {
-            event.preventDefault()  
-            setState((prev) => ({
-              ...prev,
-            text: event.target.value,
-          }), console.log(state))}}
+        <div class="input">
+          <label>
+            Name of your Business:
+            <br />
+            <TextField
+              name="name"
+              id="name"
+              onChange={(event) =>
+                setState(
+                  (prev) => ({
+                    ...prev,
+                    name: event.target.value,
+                  }),
+                  console.log(state.name)
+                )
+              }
+            />
+          </label>
+        </div>
+
+        <div class="input">
+          <label>
+            What would you like written in the Ad?
+            <br />
+            <TextField
+              id="content"
+              multiline
+              placeholder="what should your ad say?"
+              text="text"
+              onChange={(event) =>
+                setState(
+                  (prev) => ({
+                    ...prev,
+                    content: event.target.value,
+                  }),
+                  console.log(state.content)
+                )
+              }
+            />
+          </label>
+        </div>
+
+        <div class="input">
+          <label>
+            Do you want contact information in the ad?
+            <br />
+            <TextField
+              id="contact-info"
+              multiline
+              placeholder="Contact Information?"
+              text="text"
+              onChange={(event) =>
+                setState(
+                  (prev) => ({
+                    ...prev,
+                    contact: event.target.value,
+                  }),
+                  console.log(state.contact)
+                )
+              }
+            />
+          </label>
+        </div>
+
+        <div class="input">
+          <label>
+            Do you want a price in the ad?
+            <br />
+            <TextField
+              id="price"
+              placeholder="price?"
+              text="text"
+              onChange={(event) =>
+                setState((prev) => ({
+                  ...prev,
+                  price: event.target.value,
+                }))
+              }
+            />
+          </label>
+        </div>
+
+        <div class="input">
+          <label>
+            What URL would you like the ad to go to?
+            <br />
+            <TextField
+              id="url"
+              multiline
+              placeholder="tell me where to send them when they click?"
+              text="text"
+              onChange={(event) =>
+                setState(
+                  (prev) => ({
+                    ...prev,
+                    url: event.target.value,
+                  }),
+                  console.log(state.content)
+                )
+              }
+            />
+          </label>
+        </div>
+
+        <div class="input">
+          <label>
+            Select Your Font Style:
+            <Select
+              id="font"
+              value={state.text}
+              onChange={(event) => {
+                event.preventDefault();
+                setState(
+                  (prev) => ({
+                    ...prev,
+                    text: event.target.value,
+                  }),
+                  console.log(state)
+                );
+              }}
+            >
+              <MenuItem
+                value={"Bebas Neue"}
+                style={{ fontFamily: "Bebas Neue" }}
+              >
+                Bold
+              </MenuItem>
+              <MenuItem value={"Amatic SC"} style={{ fontFamily: "Amatic SC" }}>
+                Quiet
+              </MenuItem>
+              <MenuItem
+                id="fancy"
+                value={"Parisienne"}
+                style={{ fontFamily: "Parisienne" }}
+              >
+                Fancy
+              </MenuItem>
+            </Select>
+          </label>
+
+          <label>
+            Select Your Font Color:
+            <Input
+              style={{ width: "4rem" }}
+              type="color"
+              id="color"
+              value={state.color}
+              onChange={(event) => {
+                event.preventDefault();
+                setState(
+                  (prev) => ({
+                    ...prev,
+                    color: event.target.value,
+                  }),
+                  console.log(state)
+                );
+              }}
+            />
+          </label>
+        </div>
+
+        <div class="input">
+          <label>
+            Select Your Background
+            <Select
+              id="background"
+              value={state.background}
+              onChange={(event) => {
+                event.preventDefault();
+                setState(
+                  (prev) => ({
+                    ...prev,
+                    background: event.target.value,
+                  }),
+                  console.log(state)
+                );
+              }}
+            >
+              {pictureList}
+            </Select>
+          </label>
+        </div>
+
+        <Button
+          variant="contained"
+          color="secondary"
+          onClick={() => props.passBack(state)}
         >
-          <MenuItem value={'Bebas Neue'} style={{fontFamily: 'Bebas Neue'}}>Bold</MenuItem>
-          <MenuItem value={'Amatic SC'} style={{fontFamily: 'Amatic SC'}}>Quiet</MenuItem>
-          <MenuItem id="fancy" value={'Parisienne'} style={{fontFamily: 'Parisienne'}}>Fancy</MenuItem>
-        </Select>
-        </label>
-      </div>
-
-      <div>
-    
-    <label>
-      Select Your Font Color:
-      <Input
-      style={{width: '4rem'}}
-      type='color'
-      id="color"
-      value={state.color}
-      onChange={(event) => {
-        event.preventDefault()  
-        setState((prev) => ({
-          ...prev,
-        color: event.target.value,
-      }), console.log(state))}}
-    />
-      
-    </label>
-  </div>
-
-
-
-
-      <div>
-          <label>
-              What would you like written in the Ad?
-              <br/>
-      <TextField 
-      id="content"
-      multiline
-      placeholder='what should your ad say?' text="text" onChange={(event) => setState((prev) => ({
-              ...prev,
-            content: event.target.value,
-          }), console.log(state.content))}/>
-          </label>
-      </div>
-      <div>
-          <label>
-              Do you want contact information in the ad?
-              <br/>
-      <TextField 
-      id="contact-info"
-      multiline
-      placeholder='Contact Information?' text="text" onChange={(event) => setState((prev) => ({
-              ...prev,
-            contact: event.target.value,
-          }), console.log(state.contact))}/>
-          </label>
-      </div>
-
-      <div>
-          <label>
-              Do you want a price in the ad?
-              <br/>
-      <TextField 
-      id="price"
-      placeholder='price?' text="text" onChange={(event) => setState((prev) => ({
-              ...prev,
-            price: event.target.value,
-          }))}/>
-          </label>
-      </div>
-
-      <div>
-          <label>
-              What URL would you like the ad to go to?
-              <br/>
-      <TextField 
-      id="url"
-      multiline
-      placeholder='tell me where to send them when they click?' text="text" onChange={(event) => setState((prev) => ({
-              ...prev,
-            url: event.target.value,
-          }), console.log(state.content))}/>
-          </label>
-      </div>
-      <Button variant="contained" color='secondary' onClick={() => props.passBack(state)}>Preview</Button>
-    </form>
+          Preview
+        </Button>
+      </Form>
     </section>
   );
 }

@@ -47,10 +47,10 @@ function App() {
       justify="center"
       alignItems="center" 
       >
-        <Grid item xs>
-        <AdForm passBack={passBack}/>
+        <Grid item xs class='main-containers'>
+        <AdForm passBack={passBack} />
         </Grid>
-        <Grid item xs id='preview-app'>
+        <Grid item xs id='preview-app' class='main-containers'>
         <AdPreview state={state}/>
         </Grid>
         </Grid>

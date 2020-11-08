@@ -13,12 +13,14 @@ body {
   }
 }
 
-#preview-app {
-  min-height: 100vh;
+.main-containers {
+  /* min-height: 110vh; */
   display: flex;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
   color: white;
+  margin-left: 4rem;
+  margin-right: 4rem;
 }
 
 .App-link {
