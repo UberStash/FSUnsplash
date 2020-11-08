@@ -45,9 +45,32 @@ function App() {
       <Grid container
       direction="row"
       justify="center"
-      alignItems="center" 
+       
       >
         <Grid item xs class='main-containers'>
+        <div class="background">
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+</div>
         <AdForm passBack={passBack} />
         </Grid>
         <Grid item xs id='preview-app' class='main-containers'>

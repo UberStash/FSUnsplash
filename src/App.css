@@ -2,36 +2,16 @@ body {
   text-align: center;
   display: block;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
   justify-content: center;
 
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
 .main-containers {
-  /* min-height: 110vh; */
-  display: flex;
-  align-items: center;
-  /* justify-content: center; */
+ 
   color: white;
   margin-left: 4rem;
   margin-right: 4rem;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
