@@ -42,10 +42,11 @@ function App() {
       {state.visible ? (
         <Grid container direction="row" justify="center">
           <Grid item xs={12} lg={6} class="main-containers">
-            <AdForm passBack={passBack} />
+          <AdPreview state={state} />
           </Grid>
           <Grid item xs={12} lg={6} id="preview-app" class="main-containers">
-            <AdPreview state={state} />
+            
+            <AdForm passBack={passBack} />
           </Grid>
         </Grid>
       ) : null}

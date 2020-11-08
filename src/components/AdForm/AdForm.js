@@ -28,36 +28,31 @@ function AdForm(props) {
     type: "",
     url: "",
     price: "",
-    color: "",
+    color: "black",
   });
 
-  const Test = function () {
-    useEffect(() => {
-      unsplash.search
-        .photos(`${state.type}`, 1, 20, {
-          orientation: "portrait",
-          color: "green",
-        })
-        .then(toJson)
-        .then((json) => {
-          setState((prev) => ({
-            ...prev,
-            pictures: json.results,
-          }));
-        })
-        .catch(console.log("something failed"));
-    }, [state.type]);
-  };
+  useEffect(() => {
+    unsplash.search
+      .photos(`${state.type}`, 1, 20, {
+        orientation: "portrait",
+        color: "green",
+      })
+      .then(toJson)
+      .then((json) => {
+        setState((prev) => ({
+          ...prev,
+          pictures: json.results,
+        }));
+      });
+  }, [state.type]);
 
   const pictureList = state.pictures.map((picture) => {
     return (
       <MenuItem value={picture.urls.full}>
-        <img class="img" src={picture.urls.small} />
+        <img alt="image" className="img" src={picture.urls.small} />
       </MenuItem>
     );
   });
-
-  Test();
 
   return (
     <section id="form">
@@ -80,12 +75,13 @@ function AdForm(props) {
               Preview
             </Button>
 
-            <div class="input">
+            <div className="input">
               <label>
                 Business name
                 <br />
                 <TextField
                   style={{ width: "20rem" }}
+                  id="name"
                   InputProps={{ disableUnderline: true }}
                   onChange={(event) =>
                     setState((prev) => ({
@@ -97,11 +93,12 @@ function AdForm(props) {
               </label>
             </div>
 
-            <div class="input">
+            <div className="input">
               <label>
                 Your message
                 <br />
                 <TextField
+                  id="content"
                   style={{ width: "20rem" }}
                   InputProps={{ disableUnderline: true }}
                   onChange={(event) =>
@@ -114,7 +111,7 @@ function AdForm(props) {
               </label>
             </div>
 
-            <div class="input">
+            <div className="input">
               <label>
                 Your contact info
                 <br />
@@ -133,7 +130,7 @@ function AdForm(props) {
               </label>
             </div>
 
-            <div class="input">
+            <div className="input">
               <label>
                 Price to be displayed
                 <br />
@@ -152,11 +149,12 @@ function AdForm(props) {
               </label>
             </div>
 
-            <div class="input">
+            <div className="input">
               <label>
                 URL for the link
                 <br />
                 <TextField
+                  id="url"
                   style={{ width: "20rem" }}
                   InputProps={{ disableUnderline: true }}
                   text="text"
@@ -170,7 +168,7 @@ function AdForm(props) {
               </label>
             </div>
 
-            <div class="input">
+            <div className="input">
               <label>
                 Font
                 <Select
@@ -239,7 +237,7 @@ function AdForm(props) {
               Save
             </Button>
 
-            <div class="input">
+            <div className="input">
               <label>
                 Background search
                 <br />
@@ -258,7 +256,7 @@ function AdForm(props) {
               </label>
             </div>
 
-            <div class="input">
+            <div className="input">
               <label>
                 Select your background
                 <br />
