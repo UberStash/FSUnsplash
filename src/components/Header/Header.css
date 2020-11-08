@@ -1,14 +1,19 @@
-#header{
-    overflow: hidden;
+#header {
+  overflow: hidden;
   background-color: #221a1a;
   padding: 20px 10px;
-  height: 12rem;
+  height: 100vh;
   background-position: center;
-  background-image: url('https://images.unsplash.com/photo-1453728013993-6d66e9c9123a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80');
 }
 
 #logo {
-    float: left;
-    width: 14rem;
-    margin: .8rem;
+  float: left;
+  width: 18rem;
+  margin: 1rem;
+  border: 2px solid rgb(66, 58, 58);
+}
+
+#header-message {
+  float: right;
+  max-width: 40rem;
 }

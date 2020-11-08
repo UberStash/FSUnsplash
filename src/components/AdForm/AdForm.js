@@ -10,6 +10,7 @@ import Input from "@material-ui/core/Input";
 import { download } from "./save";
 import SaveIcon from "@material-ui/icons/Save";
 import { Grid } from "@material-ui/core";
+import PresentToAllIcon from "@material-ui/icons/PresentToAll";
 
 const toJson = require("unsplash-js").toJson;
 const unsplash = new Unsplash({
@@ -39,13 +40,12 @@ function AdForm(props) {
         })
         .then(toJson)
         .then((json) => {
-          console.log(json.results);
           setState((prev) => ({
             ...prev,
             pictures: json.results,
           }));
-          console.log(state);
-        });
+        })
+        .catch(console.log("something failed"));
     }, [state.type]);
   };
 
@@ -55,7 +55,6 @@ function AdForm(props) {
         <img class="img" src={picture.urls.small} />
       </MenuItem>
     );
-    // console.log(picture)
   });
 
   Test();
@@ -67,16 +66,16 @@ function AdForm(props) {
           container
           spacing={0}
           display="flex"
-          //   direction="row"
-          //   alignItems="center"
           justify="center"
           style={{ minHeight: "100vh" }}
         >
-          <Grid xs={12} lg={6}>
+          <Grid item xs={12} lg={6}>
             <Button
               variant="contained"
+              size="large"
               color="secondary"
               onClick={() => props.passBack(state)}
+              startIcon={<PresentToAllIcon />}
             >
               Preview
             </Button>
@@ -89,13 +88,10 @@ function AdForm(props) {
                   style={{ width: "20rem" }}
                   InputProps={{ disableUnderline: true }}
                   onChange={(event) =>
-                    setState(
-                      (prev) => ({
-                        ...prev,
-                        name: event.target.value,
-                      }),
-                      console.log(state.name)
-                    )
+                    setState((prev) => ({
+                      ...prev,
+                      name: event.target.value,
+                    }))
                   }
                 />
               </label>
@@ -108,15 +104,11 @@ function AdForm(props) {
                 <TextField
                   style={{ width: "20rem" }}
                   InputProps={{ disableUnderline: true }}
-                  //   text="text"
                   onChange={(event) =>
-                    setState(
-                      (prev) => ({
-                        ...prev,
-                        content: event.target.value,
-                      }),
-                      console.log(state.content)
-                    )
+                    setState((prev) => ({
+                      ...prev,
+                      content: event.target.value,
+                    }))
                   }
                 />
               </label>
@@ -132,13 +124,10 @@ function AdForm(props) {
                   InputProps={{ disableUnderline: true }}
                   text="text"
                   onChange={(event) =>
-                    setState(
-                      (prev) => ({
-                        ...prev,
-                        contact: event.target.value,
-                      }),
-                      console.log(state.contact)
-                    )
+                    setState((prev) => ({
+                      ...prev,
+                      contact: event.target.value,
+                    }))
                   }
                 />
               </label>
@@ -170,17 +159,12 @@ function AdForm(props) {
                 <TextField
                   style={{ width: "20rem" }}
                   InputProps={{ disableUnderline: true }}
-                  //   id="url"
-                  //   multiline
                   text="text"
                   onChange={(event) =>
-                    setState(
-                      (prev) => ({
-                        ...prev,
-                        url: event.target.value,
-                      }),
-                      console.log(state.content)
-                    )
+                    setState((prev) => ({
+                      ...prev,
+                      url: event.target.value,
+                    }))
                   }
                 />
               </label>
@@ -196,13 +180,10 @@ function AdForm(props) {
                   value={state.text}
                   onChange={(event) => {
                     event.preventDefault();
-                    setState(
-                      (prev) => ({
-                        ...prev,
-                        text: event.target.value,
-                      }),
-                      console.log(state)
-                    );
+                    setState((prev) => ({
+                      ...prev,
+                      text: event.target.value,
+                    }));
                   }}
                 >
                   <MenuItem
@@ -237,13 +218,10 @@ function AdForm(props) {
                   value={state.color}
                   onChange={(event) => {
                     event.preventDefault();
-                    setState(
-                      (prev) => ({
-                        ...prev,
-                        color: event.target.value,
-                      }),
-                      console.log(state)
-                    );
+                    setState((prev) => ({
+                      ...prev,
+                      color: event.target.value,
+                    }));
                   }}
                 />
               </label>
@@ -256,7 +234,6 @@ function AdForm(props) {
               color="primary"
               size="large"
               onClick={() => download(state)}
-              // className={classes.button}
               startIcon={<SaveIcon />}
             >
               Save
@@ -268,7 +245,6 @@ function AdForm(props) {
                 <br />
                 <TextField
                   style={{ width: "20rem" }}
-                  color="blue"
                   id="type"
                   name="type"
                   InputProps={{ disableUnderline: true }}
@@ -293,13 +269,10 @@ function AdForm(props) {
                   style={{ width: "20rem" }}
                   onChange={(event) => {
                     event.preventDefault();
-                    setState(
-                      (prev) => ({
-                        ...prev,
-                        background: event.target.value,
-                      }),
-                      console.log(state)
-                    );
+                    setState((prev) => ({
+                      ...prev,
+                      background: event.target.value,
+                    }));
                   }}
                 >
                   {pictureList}

@@ -1,7 +1,5 @@
 export function download(state) {
-    let htmlText = 
-    
-    `
+  let htmlText = `
     HTML
     --------------
     
@@ -83,22 +81,21 @@ a {
     background-image: url(${state.background});
     border-radius: 2%;
   }
-  `
+  `;
 
   const filename = "yourAd.txt";
-    
-    
-    const element = document.createElement("a");
-    element.setAttribute(
-      "href",
-      "data:htmlText/plain;charset=utf-8," + encodeURIComponent(htmlText)
-    );
-    element.setAttribute("download", filename);
 
-    element.style.display = "none";
-    document.body.appendChild(element);
+  const element = document.createElement("a");
+  element.setAttribute(
+    "href",
+    "data:htmlText/plain;charset=utf-8," + encodeURIComponent(htmlText)
+  );
+  element.setAttribute("download", filename);
 
-    element.click();
+  element.style.display = "none";
+  document.body.appendChild(element);
 
-    document.body.removeChild(element);
-  }
+  element.click();
+
+  document.body.removeChild(element);
+}

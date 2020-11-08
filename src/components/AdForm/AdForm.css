@@ -1,62 +1,36 @@
-#color {
-   width: none; 
-}
-
 #form {
-    margin-top: 2rem;
-    text-align: center;
-    display: block;
-    
+  margin-top: 2rem;
 }
 
 .img {
-    max-width: 20rem;
-    border-radius: 1rem;
+  max-width: 20rem;
+  border-radius: 1rem;
 }
 
 button {
-    width: 10rem;
-    text-align: center;
-    align-self: center;
+  width: 10rem;
 }
 
-
-.input{
-    margin: 1rem;
-    width: 100%;
-    
+.input {
+  margin: 1rem;
 }
 
 label {
-    margin: .2rem;
+  margin: 0.2rem;
 }
 
 .MuiInputBase-input {
-    /* background-color: white !important; */
-    width: 100%;
-    margin: none; 
-    text-align: center;
-    color: blue; 
-    
+  text-align: center;
 }
 
 .MuiInputBase-root {
-    border-radius: .5em;
- /* width: 20rem; */
-    background-color: white !important;
-    border: none;
-    margin: .4rem;
-    font-size: 1.2rem !important;
+  border-radius: 0.5em;
+  background-color: white !important;
+  border: none;
+  margin: 0.4rem;
+  font-size: 1.2rem !important;
 }
 
-
-
-:placeholder-shown{
-    text-align: center;
-    
-}
-
-#save {
-    /* margin-bottom: 2em; */
-    
+:placeholder-shown {
+  text-align: center;
 }
