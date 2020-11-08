@@ -14,7 +14,7 @@ h3 {
 #preview {
   margin: 2rem;
   position: relative;
-  max-width: 40rem;
+
   display: flex;
 }
 
@@ -25,6 +25,15 @@ h3 {
 #preview-container {
   margin: auto;
   margin-top: 1rem;
+}
+
+/* If in mobile screen with maximum width 479px. The iPhone screen resolution is 320x480 px (except iPhone4, 640x960) */
+@media only screen and (max-width: 479px) {
+  #preview {
+    max-width: 60%;
+    margin: auto;
+    margin-top: 1rem;
+  }
 }
 
 a {

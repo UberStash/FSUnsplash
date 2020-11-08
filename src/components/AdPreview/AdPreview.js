@@ -24,8 +24,8 @@ function AdPreview(props) {
   return (
     <div id="preview-container">
       <a href={url}>
-        <div id="preview">
-          <div style={style}>
+        <div >
+          <div style={style} id="preview">
             <h1 id="name">
               {props.state.name ? props.state.name : "Your Business Name"}
             </h1>
