@@ -1,4 +1,5 @@
 export function download(state) {
+  // HTML text to download changes parts needed for unique styling
   let htmlText = `
     HTML
     --------------
@@ -82,8 +83,8 @@ a {
     border-radius: 2%;
   }
   `;
-
-  const filename = "yourAd.txt";
+  // logic for download
+  const filename = `${state.name}.txt`;
 
   const element = document.createElement("a");
   element.setAttribute(

@@ -2,6 +2,8 @@ import React from "react";
 
 import "./AdPreview.css";
 function AdPreview(props) {
+
+  // material ui styles for preview
   const style = {
     color: props.state.color ? props.state.color : "black",
     backgroundRepeat: "no-repeat",
@@ -22,6 +24,7 @@ function AdPreview(props) {
     : props.state.url;
 
   return (
+    // Ad preview
     <div id="preview-container">
       <a href={url}>
         <div >

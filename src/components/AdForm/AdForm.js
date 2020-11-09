@@ -31,6 +31,7 @@ function AdForm(props) {
     color: "black",
   });
 
+  // background picture search (runs on type state change)
   useEffect(() => {
     unsplash.search
       .photos(`${state.type}`, 1, 20, {
@@ -46,6 +47,7 @@ function AdForm(props) {
       });
   }, [state.type]);
 
+  // map results of api call
   const pictureList = state.pictures.map((picture) => {
     return (
       <MenuItem value={picture.urls.full}>
